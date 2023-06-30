@@ -8,16 +8,15 @@ import java.net.URL;
 import java.util.Scanner;
 
 public class Funciones {
-    public static JSONObject conneccion(String consulta) {
+    public static JSONObject Conexion(String consulta) {
         JSONObject dataObject = null;
         try {
-            String pokemon = "pikachu";
-            URL url = new URL("http://api.weatherstack.com/current?access_key=574f22bcfcfc16a6dcf0c9ae61000f60&query=" + consulta);
+            URL url = new URL("http://api.weatherapi.com/v1/current.json?key=69962640d2e54a6198f201005233006&q="+consulta+"&aqi=no&lang=es");
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
             con.setRequestMethod("GET");
             int responsecode = con.getResponseCode();
             if (responsecode != 200) {
-                System.out.println("Error" + responsecode);
+                System.out.println("Error " + responsecode);
             } else {
                 StringBuilder informationstring = new StringBuilder();
                 Scanner sc = new Scanner(url.openStream());
